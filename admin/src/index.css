@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  background-color: #0A0E1A;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom glowing pulse animations to match mobile theme */
+@keyframes cyber-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 229, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
+  }
+}
+
+.glowing-pulse {
+  animation: cyber-pulse 2s infinite;
+}
+
+@keyframes emergency-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 23, 68, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(255, 23, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 23, 68, 0);
+  }
+}
+
+.emergency-pulse-glow {
+  animation: emergency-pulse 1.5s infinite;
+}

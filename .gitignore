@@ -1,0 +1,62 @@
+# ─── Environment & Secrets ──────────────────────────────────────────────────
+.env
+.env.local
+.env.production
+.env.development
+.env.staging
+*.pem
+*.key
+service-account.json
+firebase-key.json
+google-services.json
+GoogleService-Info.plist
+
+# ─── Node.js / Express / React ──────────────────────────────────────────────
+node_modules/
+dist/
+build/
+.npm
+.eslintcache
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# ─── Python / FastAPI ───────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+ENV/
+.env/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.ipynb_checkpoints
+.pytest_cache/
+.mypy_cache/
+
+# ─── Flutter / Dart ─────────────────────────────────────────────────────────
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+*.flutter-plugins
+*.flutter-plugins-dependencies
+
+# ─── IDE & System ───────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db

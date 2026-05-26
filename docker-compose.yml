@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # ─── Real-Time Safety Gateway API ──────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: pulsesos_backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - NODE_ENV=production
+      - REDIS_URL=redis://redis:6379
+      - FIREBASE_SERVICE_ACCOUNT=${FIREBASE_SERVICE_ACCOUNT}
+    depends_on:
+      - redis
+    networks:
+      - pulsesos_network
+
+  # ─── Multi-Agent AI Orchestration Service ─────────────────────────────────
+  ai_service:
+    build:
+      context: ./ai_service
+      dockerfile: Dockerfile
+    container_name: pulsesos_ai_service
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    depends_on:
+      - redis
+    networks:
+      - pulsesos_network
+
+  # ─── Redis Cache & Socket Adapter ─────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: pulsesos_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - pulsesos_network
+
+volumes:
+  redis_data:
+
+networks:
+  pulsesos_network:
+    driver: bridge

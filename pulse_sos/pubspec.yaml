@@ -1,0 +1,107 @@
+name: pulse_sos
+description: PulseSOS - Community Emergency SOS Alert System
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Firebase
+  firebase_core: ^3.8.1
+  firebase_auth: ^5.4.1
+  cloud_firestore: ^5.6.1
+  firebase_messaging: ^15.2.1
+  firebase_storage: ^12.4.1
+  firebase_database: ^11.3.1
+
+  # State Management
+  flutter_bloc: ^8.1.6
+  equatable: ^2.0.7
+
+  # Navigation
+  go_router: ^14.8.1
+
+  # Maps & Location
+  google_maps_flutter: ^2.10.0
+  geolocator: ^13.0.2
+  geocoding: ^3.0.0
+  geoflutterfire_plus: ^0.0.30
+
+  # Networking
+  dio: ^5.7.0
+  socket_io_client: ^3.0.2
+
+  # Local Storage
+  flutter_secure_storage: ^9.2.4
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # UI
+  google_fonts: ^6.2.1
+  flutter_animate: ^4.5.0
+  shimmer: ^3.0.0
+  cached_network_image: ^3.4.1
+  flutter_svg: ^2.0.15
+  lottie: ^3.3.1
+  fl_chart: ^0.70.2
+  percent_indicator: ^4.2.3
+
+  # Auth
+  google_sign_in: ^6.2.2
+  pin_code_fields: ^8.0.1
+
+  # Background Services
+  flutter_foreground_task: ^8.13.4
+  shake_detector: ^2.0.0
+
+  # Camera & Audio
+  camera: ^0.11.1
+  record: ^5.2.0
+  permission_handler: ^11.3.1
+
+  # Notifications
+  flutter_local_notifications: ^18.0.1
+
+  # Utils
+  intl: ^0.19.0
+  uuid: ^4.5.1
+  url_launcher: ^6.3.1
+  share_plus: ^10.1.4
+  connectivity_plus: ^6.1.2
+  path_provider: ^2.1.5
+  image_picker: ^1.1.2
+  logger: ^2.5.0
+  freezed_annotation: ^2.4.6
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.14
+  freezed: ^2.5.8
+  json_serializable: ^6.9.3
+  bloc_test: ^9.1.7
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/animations/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700

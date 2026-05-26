@@ -1,0 +1,35 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ─── Users Collection Rules ──────────────────────────────────────────────
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+      
+      // Trusted Contacts subcollection
+      match /trusted_contacts/{contactId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // ─── Incidents Collection Rules ──────────────────────────────────────────
+    match /incidents/{incidentId} {
+      // Any authenticated user can list/read incidents (e.g. to scan nearby alerts)
+      allow read: if request.auth != null;
+      
+      // Creating an incident requires authentication and matching victimId
+      allow create: if request.auth != null && request.resource.data.victimId == request.auth.uid;
+      
+      // Updating requires matching victimId OR user is verified responder
+      allow update: if request.auth != null && (
+        resource.data.victimId == request.auth.uid ||
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isVerifiedResponder == true
+      );
+      
+      // Deletion is strictly prohibited
+      allow delete: if false;
+    }
+  }
+}
