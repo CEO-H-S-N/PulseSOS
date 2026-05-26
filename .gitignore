@@ -10,6 +10,7 @@ service-account.json
 firebase-key.json
 google-services.json
 GoogleService-Info.plist
+sos.md
 
 # ─── Node.js / Express / React ──────────────────────────────────────────────
 node_modules/
